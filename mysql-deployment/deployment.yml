@@ -3,6 +3,14 @@ kind: Deployment
 metadata:
   name:  mysql
 spec:
+  destination:
+    namespace: default
+      server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: mysql
+    repoURL: https://github.com/vishuh0806/argocd-deployment.git
+    targetRevision: HEAD
   selector:
     matchLabels:
       app: mysql
